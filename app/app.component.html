@@ -1,0 +1,21 @@
+<h1>ToDo</h1>
+<app-todo></app-todo>
+<table>
+  <tr>
+    <th>Te doen</th>
+    <th>Gedaan</th>
+  </tr>
+  <tr>
+    <td>
+      <ul *ngFor = "let t of Taken">
+        <li *ngIf="t.gedaan==false">{{t.naam}} <input type=checkbox (click)="verschuif(t.naam)"></li>
+      </ul>
+    </td>
+    <td>
+      <ul *ngFor = "let t of Taken">
+        <li *ngIf="t.gedaan==true">{{t.naam}} <input type=checkbox (click)="verschuif(t.naam)"> </li>
+      </ul>
+    </td>
+  </tr>
+</table>
+<input #strTaak type="text" (keyup.enter)="toevoegenTaak(strTaak.value)" />
